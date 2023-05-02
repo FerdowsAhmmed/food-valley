@@ -1,0 +1,11 @@
+.header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(187, 196, 155);
+}
+
+.menu-items{
+    margin-left: 20px;
+}
+
