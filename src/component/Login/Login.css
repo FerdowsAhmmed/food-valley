@@ -13,7 +13,7 @@ input[type=email], input[type=password] {
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    background-color: #f8f8f8;
+    background-color: #da8181;
 }
 
 input[type=submit] {
@@ -32,7 +32,7 @@ input[type=submit]:hover {
 
 .container {
     padding: 16px;
-    background-color: #f2f2f2;
+    background-color: #c79c9c;
     width: 50%;
     border-radius: 4px;
 }
@@ -49,15 +49,16 @@ h2 {
 }
 .google-github button{
 width: 90%;
-background-color: rgba(80, 24, 36, 0.404);
-color: white;
+background-color: #ccc;
+color: rgb(14, 14, 14);
 padding: 5px;
 margin-bottom: 5px;
 border-radius: 10px;
 font-size: 1em;
+border-color: #ccc;
 }
 .auto-login{
-    background-color: #f8a90b;
+   background-color: #e7dcdc;
     padding-top: 5px;
     padding-bottom: 20px;
     border-radius: 5px;
