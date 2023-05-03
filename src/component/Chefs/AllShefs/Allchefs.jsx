@@ -21,7 +21,8 @@ const Allchefs = () => {
             <p>Years of experience: {chef.yearsOfExperience}</p>
             <p>Numbers of recipes: {chef.numberOfRecipes}</p>
             <p>Likes: {chef.likes}</p>
-            <Link to='/allRecipe'><button>View recipe</button></Link>
+            <Link to={`/${chef.id}`}><button>View recipe</button></Link>
+
           </div>
         ))}
         </div>

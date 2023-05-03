@@ -1,0 +1,45 @@
+
+.viewRecipe-container-page{
+margin: 20px;
+}
+
+.chef-info{
+    background-color: #c7c5c3;
+    font-size: 1.2em;
+    color: rgb(16, 9, 1);
+    border: 1px solid rgb(220, 216, 216);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: justify;
+    height: fit-content;
+    
+}
+.chef-info img{
+ border-radius: 5px;
+ display: block;
+ max-width:100%;
+ max-height:400px;
+ width: auto;
+ height: auto;
+}
+
+.recipe-card{
+    border: 1px solid rgb(220, 216, 216);
+    padding: 20px;
+    text-align: justify;
+    margin-bottom: 20px;
+    background-color: rgb(176, 169, 168);
+}
+.chef-details{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.recipe-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 100px;
+
+}
