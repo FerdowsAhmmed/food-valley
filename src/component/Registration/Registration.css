@@ -51,3 +51,7 @@ img {
     object-position: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
+.bottom-text{
+    text-align: center;
+    color: rgb(179, 93, 18);
+}

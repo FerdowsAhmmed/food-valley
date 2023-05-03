@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log(import.meta.env.VITE_MESSAGINGSENDERID);
 const firebaseConfig = {
-  apiKey: "AIzaSyCMOgT7GZLOAzsx-a5mR1AinoVs1qTMJMU",
-  authDomain: "food-valley-cd513.firebaseapp.com",
-  projectId: "food-valley-cd513",
-  storageBucket: "food-valley-cd513.appspot.com",
-  messagingSenderId: "271087127525",
-  appId: "1:271087127525:web:1eef07429c41049dd8bd0c"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

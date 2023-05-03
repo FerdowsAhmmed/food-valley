@@ -2,7 +2,7 @@ import React from 'react';
 import './Registration.css'
 import { Link } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import app from '../../firebase/firebase.init';
+import app from '../../firebase/firebase.config';
 import { useState } from 'react';
 
 const auth = getAuth(app);
@@ -71,7 +71,7 @@ createUserWithEmailAndPassword(auth, email, password)
 		</div>
 	</form>
         </div>
-		<div>
+		<div className='bottom-text'>
 			<p>Allready have an account? Then <Link to='/login'>Login here</Link></p>
 		</div>
 	 </section>

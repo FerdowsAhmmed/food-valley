@@ -2,7 +2,8 @@ import React from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
 import { getAuth,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import app from '../../firebase/firebase.init';
+import app from '../../firebase/firebase.config';
+
 
 const Login = () => {
 
