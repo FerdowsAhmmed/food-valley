@@ -1,9 +1,12 @@
 import React from 'react';
+import Allchefs from '../Chefs/AllShefs/Allchefs';
+import CarouselSection from '../CarouselSection/CarouselSection';
 
 const Home = () => {
     return (
         <div>
-            <h1>home</h1>
+            <CarouselSection></CarouselSection>
+            <Allchefs></Allchefs>
         </div>
     );
 };

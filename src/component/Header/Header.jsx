@@ -4,12 +4,11 @@ import './Header.css'
 
 const Header = () => {
     return (
-        <div className='header'>
+        <div className='header p-2'>
             <div><h1>Food Valley</h1></div>
             <div>
                 <ul>
                     <Link className='menu-items' to='/'>Home</Link>
-                    <Link className='menu-items' to='/allChefs'>All Chefs</Link>
                     <Link className='menu-items' to='/blog'>Blog</Link>
                     <Link className='menu-items' to='/login'>Login</Link>
                     <Link className='menu-items' to='/logout'>LogOut</Link>

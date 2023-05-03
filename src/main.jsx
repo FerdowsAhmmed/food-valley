@@ -27,6 +27,15 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/allChefs",
+        element: <Allchefs></Allchefs>,
+      },
+      {
+        path: ":id",
+        element: <ChefRecipe></ChefRecipe>,
+        loader: ({params})=> fetch(`http://localhost:5000/allData1`)
+      },
+      {
         path: "/blog",
         element: <Blog></Blog>,
       },
@@ -42,17 +51,9 @@ const router = createBrowserRouter([
         path: "/registration",
         element: <Registration></Registration>,
       },
-      {
-        path: "/allChefs",
-        element: <Allchefs></Allchefs>,
-      },
-      {
-        path: ":id",
-        element: <ChefRecipe></ChefRecipe>,
-        loader: ({params})=> fetch(`http://localhost:5000/allData1`)
-      }
     ]
   },
+ 
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

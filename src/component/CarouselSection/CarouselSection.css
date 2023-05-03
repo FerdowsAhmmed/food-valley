@@ -1,0 +1,6 @@
+.my-carousel img {
+    min-width: 100%;
+    border-radius: 0;
+    margin: auto;
+    padding: 20px;
+}
