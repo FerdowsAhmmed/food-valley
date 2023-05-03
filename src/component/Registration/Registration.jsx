@@ -16,7 +16,6 @@ const handleRegister = event => {
    const name=event.target.name.value;
    const email=event.target.email.value;
    const password=event.target.password.value;
-   const confirmPassword=event.target.confirmPassword.value
    console.log(email,password);
    if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/.test(password)){
       setError(`
@@ -61,12 +60,8 @@ createUserWithEmailAndPassword(auth, email, password)
 			<label><b>Password</b></label>
 			<input required className='items' type="password" name='password' id='password' placeholder='Password ' />
 
-			<label ><b>Confirm Password</b></label>
-			<input type="password" placeholder="Confirm Password" name="confirm_password" required/>
-
 			<label ><b>Photo URL</b></label>
 			<input required className='items' type="password" name='confirm-password' id='confirmPassword' placeholder='Confirm Password ' />
-
 			<input type="submit" value="Register"/>
 		</div>
 	</form>

@@ -13,6 +13,8 @@ import Login from "./component/Login/Login";
 import Logout from "./component/Logout/Logout";
 import Registration from "./component/Registration/Registration";
 import Home from "./component/Home/Home";
+import Allchefs from "./component/Chefs/AllShefs/Allchefs";
+import ChefRecipe from "./component/ChefRecipe/ChefRecipe";
 
 
 const router = createBrowserRouter([
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
       {
         path: "/registration",
         element: <Registration></Registration>,
+      },
+      {
+        path: "/allChefs",
+        element: <Allchefs></Allchefs>,
+      },
+      {
+        path: "/allRecipe",
+        element: <ChefRecipe></ChefRecipe>,
       }
     ]
   },
