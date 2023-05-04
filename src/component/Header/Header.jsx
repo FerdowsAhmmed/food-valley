@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import { useHistory } from 'react-router-dom';
 
 import './Header.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
@@ -10,7 +9,6 @@ const Header = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const auth = getAuth();
-  // const history = useHistory();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -49,7 +47,11 @@ const Header = () => {
           {user && <button onClick={handleLogout} className='btn btn-primary ms-2'>Logout</button>}
         </ul>
       </div>
-      <div> {user && <img src={user.photoURL} alt="userPhoto" />}</div>
+      {user && (
+        <div className="user-photo">
+          <img src={user.photoURL} alt="userPhoto" title={user.displayName} />
+        </div>
+      )}
     </div>
   );
 };
