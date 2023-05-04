@@ -1,0 +1,16 @@
+.family-recipe2{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.text2{
+    text-align: left;
+}
+.my-image2 img{
+    border-radius: 20px;
+    min-width: 700px;
+    height: auto;
+}
