@@ -1,53 +1,62 @@
 import React from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
-import { getAuth,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 
-
 const Login = () => {
-
   const auth = getAuth(app);
-  const provider =new GoogleAuthProvider();
-  provider.setCustomParameters({ prompt: 'select_account' });
-const handleGoogleSignIn=()=>{
-signInWithPopup(auth,provider)
-.then (result=> {
-  const user = result.user;
-  console.log(user);
-})
-.catch(error=> {
-  console.log(error);
-})
-}
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
-    return (
-      <section>
-          <div>
-         <form>
-		<h2>Login Form</h2>
-		<div className="container">
-			<label ><b>Email</b></label>
-			<input type="email" placeholder="Enter Email" name="email" required/>
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-			<label ><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="password" required/>
+  const handleGithubSignIn = () => {
+    signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-			<input type="submit" value="Submit"/>
-		</div>
-	</form>
-        </div>
-        <div className='google-github'>
-           <p> Don't have an account? <Link to='/registration'>Register here</Link></p>
-          <div className='auto-login'>
+  return (
+    <section>
+      <div>
+        <form>
+          <h2>Login Form</h2>
+          <div className="container">
+            <label><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required />
+
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required />
+
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+      <div className='google-github'>
+        <p> Don't have an account? <Link to='/registration'>Register here</Link></p>
+        <div className='auto-login'>
           <h4> Login with</h4>
           <button onClick={handleGoogleSignIn}>Google login</button> <br />
-          <button>Git-hub login</button>
-          </div>
-
+          <button onClick={handleGithubSignIn}>Github login</button>
         </div>
-      </section>
-    );
+      </div>
+    </section>
+  );
 };
 
 export default Login;
