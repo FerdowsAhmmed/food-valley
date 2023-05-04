@@ -41,6 +41,7 @@ const Header = () => {
       <div>
         <ul>
           <Link className='menu-items' to='/'>Home</Link>
+          <Link className='menu-items' to='/allChefs'>All Chef's</Link>
           <Link className='menu-items' to='/blog'>Blog</Link>
           {!user && <Link className='menu-items' to='/login'>Login</Link>}
           {!user && <Link className='menu-items' to='/registration'>Register</Link>}

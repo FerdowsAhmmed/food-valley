@@ -13,7 +13,7 @@ const Allchefs = () => {
 
   return (
     
-       <section>
+       <main>
         <h1 className='text-center mt-5'>All Available Chefs</h1>
             <div className='card-container'>
                     {chefData.map((chef) => (
@@ -28,7 +28,7 @@ const Allchefs = () => {
                     </div>
             ))}
             </div>
-       </section>
+       </main>
    
   );
 };

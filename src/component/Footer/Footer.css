@@ -1,7 +1,11 @@
-.footer {
-    min-width: 100%;
-    background-color: #9a9b7e;
-    color: #130804;
-    text-align: center;
-    padding: 20px;
-  }
+.footer-container{
+  background-color: rgb(187, 196, 155);
+  padding: 50px 50px 5px 50px ;
+}
+.footer-section{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  margin-left: 50px;
+ 
+}
