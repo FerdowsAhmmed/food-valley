@@ -1,23 +1,56 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css'
+// import { useHistory } from 'react-router-dom';
+
+import './Header.css';
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 const Header = () => {
-    return (
-        <div className='header p-2'>
-            <div><h1>Food Valley</h1></div>
-            <div>
-                <ul>
-                    <Link className='menu-items' to='/'>Home</Link>
-                    <Link className='menu-items' to='/blog'>Blog</Link>
-                    <Link className='menu-items' to='/login'>Login</Link>
-                    <Link className='menu-items' to='/logout'>LogOut</Link>
-                    <Link className='menu-items' to='/registration'>Registration</Link>
-                </ul>
-            </div>
-            <div> <img src="" alt="userPhoto" /></div>
-        </div>
-    );
+  
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const auth = getAuth();
+  // const history = useHistory();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+    });
+  }, [auth]);
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log('Logout successful.');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleLogin = () => {
+    history.push("/");
+  };
+
+  if (loading) {
+    return null; 
+  }
+
+  return (
+    <div className='header p-2'>
+      <div><h1>Food Valley</h1></div>
+      <div>
+        <ul>
+          <Link className='menu-items' to='/'>Home</Link>
+          <Link className='menu-items' to='/blog'>Blog</Link>
+          {!user && <Link className='menu-items' to='/login'>Login</Link>}
+          {user && <button onClick={handleLogout} className='btn btn-primary ms-2'>Logout</button>}
+        </ul>
+      </div>
+      <div> {user && <img src={user.photoURL} alt="userPhoto" />}</div>
+    </div>
+  );
 };
 
 export default Header;

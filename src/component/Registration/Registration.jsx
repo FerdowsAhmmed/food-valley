@@ -1,11 +1,8 @@
-import React from 'react';
-import './Registration.css'
+import React, { useState } from 'react';
+import './Registration.css';
 import { Link } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import app from '../../firebase/firebase.config';
-import { useState } from 'react';
-
-const auth = getAuth(app);
 
 const Registration = () => {
   const [error, setError] = useState('');
@@ -16,6 +13,8 @@ const Registration = () => {
     const fullName = event.target.fullName.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
+    const photoURL = event.target.photoUrl.value;
+
     if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/.test(password)) {
       setError(`
         Password must be at least 8 characters, 
@@ -24,12 +23,21 @@ const Registration = () => {
       return;
     }
 
+    const auth = getAuth(app);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
-        setError('');
-        event.target.reset();
-        setSuccess('User has been created successfully');
+        console.log(user);
+        updateProfile(user, {
+          displayName: fullName,
+          photoURL: photoURL
+        }).then(() => {
+          setError('');
+          event.target.reset();
+          setSuccess('User has been created successfully');
+        }).catch((error) => {
+          setError(error.message);
+        });
       })
       .catch((error) => {
         setSuccess('');

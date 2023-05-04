@@ -12,12 +12,12 @@ const Footer = () => {
             <p>Footer Left</p>
             <p>Footer Left</p>
             <p>Footer Left</p></Col>
-            <Col  md="auto">
+            <Col className='bg-danger' md="auto">
             <p>Footer Middle</p>
             <p>Footer Middle</p>
             <p>Footer Middle</p>
             <p>Footer Middle</p></Col>
-            <Col xs lg="2">
+            <Col className='bg-success' xs lg="2">
              <p>Footer Right</p>
              <p>Footer Right</p>
              <p>Footer Right</p>

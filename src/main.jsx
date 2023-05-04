@@ -10,7 +10,6 @@ import "./index.css";
 import Main from "./component/Layout/Main";
 import Blog from "./component/Blog/Blog";
 import Login from "./component/Login/Login";
-import Logout from "./component/Logout/Logout";
 import Registration from "./component/Registration/Registration";
 import Home from "./component/Home/Home";
 import Allchefs from "./component/Chefs/AllShefs/Allchefs";
@@ -42,10 +41,6 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
-      },
-      {
-        path: "/logout",
-        element: <Logout></Logout>,
       },
       {
         path: "/registration",

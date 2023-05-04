@@ -4,6 +4,9 @@
     align-items: center;
     background-color: rgb(187, 196, 155);
 }
+.header img{
+    width: 50px;
+}
 
 .menu-items{
     margin-left: 20px;
