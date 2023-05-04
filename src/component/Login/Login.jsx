@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 
 const Login = () => {
+  const [error, setError] = useState('');
   const auth = getAuth(app);
-  const googleProvider = new GoogleAuthProvider();
-  const githubProvider = new GithubAuthProvider();
+  const provider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
-    signInWithPopup(auth, googleProvider)
+    signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -20,22 +20,30 @@ const Login = () => {
       });
   };
 
-  const handleGithubSignIn = () => {
-    signInWithPopup(auth, githubProvider)
-      .then((result) => {
-        const user = result.user;
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
         console.log(user);
+        setError('');
       })
       .catch((error) => {
-        console.log(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        setError(errorMessage);
       });
   };
 
   return (
     <section>
       <div>
-        <form>
+        <form onSubmit={handleFormSubmit}>
           <h2>Login Form</h2>
+          {error && <div className="error-message">{error}</div>}
           <div className="container">
             <label><b>Email</b></label>
             <input type="email" placeholder="Enter Email" name="email" required />
@@ -52,7 +60,7 @@ const Login = () => {
         <div className='auto-login'>
           <h4> Login with</h4>
           <button onClick={handleGoogleSignIn}>Google login</button> <br />
-          <button onClick={handleGithubSignIn}>Github login</button>
+          <button>Git-hub login</button>
         </div>
       </div>
     </section>
