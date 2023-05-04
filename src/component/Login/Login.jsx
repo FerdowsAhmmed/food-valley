@@ -9,6 +9,7 @@ const Login = () => {
 
   const auth = getAuth(app);
   const provider =new GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: 'select_account' });
 const handleGoogleSignIn=()=>{
 signInWithPopup(auth,provider)
 .then (result=> {

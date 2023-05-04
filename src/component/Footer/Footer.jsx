@@ -7,12 +7,12 @@ const Footer = () => {
     return (
         <Container className='footer hidden'>
           <Row>
-            <Col>
+            <Col className='bg-info'>
             <p>Footer Left</p>
             <p>Footer Left</p>
             <p>Footer Left</p>
             <p>Footer Left</p></Col>
-            <Col md="auto">
+            <Col  md="auto">
             <p>Footer Middle</p>
             <p>Footer Middle</p>
             <p>Footer Middle</p>
