@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 import Header from '../Header/Header';
 
-
 const Login = () => {
+  
+  const location =useLocation();
+  const navigate =useNavigate();
+  const from = (location.state && location.state.from && location.state.from.pathname) || '/';
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +24,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         setUser(user);
+        navigate(from, {replace:true});
       })
       .catch((error) => {
         console.log(error);
@@ -33,6 +37,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         setUser(user);
+        navigate(from, {replace:true});
       })
       .catch((error) => {
         console.log(error);
@@ -46,13 +51,15 @@ const Login = () => {
         const user = userCredential.user;
         console.log(user);
         setUser(user);
+        navigate(from, {replace:true});
       })
       .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        setError(errorMessage);
+        console.log(error);
+        setError("Invalid email or password. Please try again.");
       });
   };
+  
+  
 
 
 

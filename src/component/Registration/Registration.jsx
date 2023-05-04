@@ -15,10 +15,14 @@ const Registration = () => {
     const password = event.target.password.value;
     const photoURL = event.target.photoUrl.value;
 
-    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/.test(password)) {
+    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+~`|}{[\]:;?><,./-=]).{6,}$/.test(password)) {
       setError(`
-        Password must be at least 8 characters, 
-        with two uppercase, three lowercase, and a special character.
+      
+      *Password must be at least 6 characters
+      *with a uppercase
+      *a number
+      *and a special character.
+    </
       `);
       return;
     }
