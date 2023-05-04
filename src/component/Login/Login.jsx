@@ -5,6 +5,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signI
 import app from '../../firebase/firebase.config';
 import Header from '../Header/Header';
 
+
 const Login = () => {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
@@ -52,6 +53,8 @@ const Login = () => {
         setError(errorMessage);
       });
   };
+
+
 
   return (
     <section>

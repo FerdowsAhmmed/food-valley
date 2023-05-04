@@ -45,6 +45,7 @@ const Header = () => {
           <Link className='menu-items' to='/'>Home</Link>
           <Link className='menu-items' to='/blog'>Blog</Link>
           {!user && <Link className='menu-items' to='/login'>Login</Link>}
+          {!user && <Link className='menu-items' to='/registration'>Register</Link>}
           {user && <button onClick={handleLogout} className='btn btn-primary ms-2'>Logout</button>}
         </ul>
       </div>

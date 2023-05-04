@@ -6,7 +6,7 @@ const ChefRecipe = () => {
     const { id } = useParams();
     const AllRecipes = useLoaderData();
     const recipe = AllRecipes.find((r) => r.id === parseInt(id));
-    console.log(recipe.id);
+    // console.log(recipe.id);
    
  
     return (
