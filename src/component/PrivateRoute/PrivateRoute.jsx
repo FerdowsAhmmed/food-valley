@@ -6,7 +6,9 @@ const auth = getAuth();
 
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('isAuthenticated') === 'true';
+  });
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -17,13 +19,11 @@ const PrivateRoute = ({ children }) => {
     return unsubscribe;
   }, []);
 
-  const isLoggedIn = localStorage.getItem('isAuthenticated');
-
-  if (isAuthenticated || isLoggedIn) {
+  if (isAuthenticated) {
     return children;
   }
 
-  return <Navigate state={{ from: location }} to="/login" replace />;
+  return <Navigate state={{ from: location }} to="/login" />;
 };
 
 export default PrivateRoute;
