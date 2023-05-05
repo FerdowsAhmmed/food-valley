@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             <ChefRecipe />
           </PrivateRoute>
         ,
-        loader: ({ params }) => fetch(`http://localhost:5000/allData1`),
+        loader: ({ params }) => fetch(`https://server-ferdowsahmmed.vercel.app/allData1`),
       },
       {
         path: "/blog",
@@ -49,10 +49,6 @@ const router = createBrowserRouter([
       },
   
     ],
-  },
-  {
-    path: "*",
-    element: <Page404></Page404>,
   },
 ]);
 

@@ -5,6 +5,7 @@ import './Blog.css'
 const Blog = () => {
     return (
        <div className='blog-container'>
+        <h1 className='text-success text-center mb-5 bg-dark p-5'>My Blog</h1>
 <div className='single-question'>
             <h4>The differences between uncontrolled and controlled components.</h4>
             <div>

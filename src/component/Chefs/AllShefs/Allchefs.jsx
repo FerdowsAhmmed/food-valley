@@ -6,7 +6,7 @@ const Allchefs = () => {
   const [chefData, setChefData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/allData1')
+    fetch('https://server-ferdowsahmmed.vercel.app/allData1')
       .then((res) => res.json())
       .then((data) => setChefData(data));
   }, []);
@@ -14,7 +14,7 @@ const Allchefs = () => {
   return (
     
        <main> 
-        <h1 className='text-center mt-5'>All Available Chefs</h1>
+        <h1 className='text-center'>All Available Chefs</h1>
             <div className='card-container'>
                     {chefData.map((chef) => (
                     <div className='card' key={chef.id}>

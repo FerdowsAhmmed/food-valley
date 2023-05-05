@@ -14,7 +14,7 @@ const FamilyRecipe = () => {
                  <button className='btn btn-primary'>Pre-order now</button>
             </div>
 
-            <div className='my-image'>
+            <div className='my-image img-fluid'>
                 <img src="./birani.jpg" alt="" />
             </div>
         </div>
