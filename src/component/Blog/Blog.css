@@ -17,3 +17,24 @@
 .single-question{
     margin-bottom: 50px;
 }
+
+@media only screen and (max-width: 768px) {
+    .blog-container{
+        padding: 5px;
+    }
+    .blog-container h4{
+       text-align: left;
+    }
+    .answer2{
+        display: flex;
+        flex-direction: column;
+    }
+    .answer2 img{
+        min-width: 100%;
+        border-radius: 0;
+    }
+    .single-question{
+        margin-bottom: 5px;
+    }
+ 
+    }
