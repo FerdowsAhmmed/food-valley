@@ -22,12 +22,12 @@ const ChefRecipe = () => {
     <main className='viewRecipe-container-page'>
       <div className='chef-details'>
         <div className='chef-info'>
-          <img src={recipe.chefPicture} alt='' />
-          <p>Chef Name:{recipe.chefName}</p>
-          <p>yearsOfExperience:{recipe.yearsOfExperience}</p>
-          <p>numberOfRecipes:{recipe.numberOfRecipes}</p>
-          <p>likes:{recipe.likes}</p>
-          <p>shortBio:{recipe.shortBio}</p>
+          <img src={recipe?.chefPicture} alt='' />
+          <p>Chef Name:{recipe?.chefName}</p>
+          <p>yearsOfExperience:{recipe?.yearsOfExperience}</p>
+          <p>numberOfRecipes:{recipe?.numberOfRecipes}</p>
+          <p>likes:{recipe?.likes}</p>
+          <p>shortBio:{recipe?.shortBio}</p>
         </div>
         <section className='recipe-container'>
           {recipe.recipes.map((chefsRecipe) => (

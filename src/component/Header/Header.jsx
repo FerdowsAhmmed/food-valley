@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './Header.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
   
@@ -36,15 +37,15 @@ const Header = () => {
   }
 
   return (
-    <div className='header p-2'>
+    <div className='header'>
       <div><h1>Food Valley</h1></div>
       <div>
-        <ul>
-          <Link className='menu-items' to='/'>Home</Link>
-          <Link className='menu-items' to='/allChefs'>All Chef's</Link>
-          <Link className='menu-items' to='/blog'>Blog</Link>
-          {!user && <Link className='menu-items' to='/login'>Login</Link>}
-          {!user && <Link className='menu-items' to='/registration'>Register</Link>}
+        <ul className='nav-items'>
+          <ActiveLink className='menu-items' to='/'>Home</ActiveLink>
+          <ActiveLink className='menu-items' to='/allChefs'>All Chef's</ActiveLink>
+          <ActiveLink className='menu-items' to='/blog'>Blog</ActiveLink>
+          {!user && <ActiveLink className='menu-items' to='/login'>Login</ActiveLink>}
+          {!user && <ActiveLink className='menu-items' to='/registration'>Register</ActiveLink>}
           {user && <button onClick={handleLogout} className='btn btn-primary ms-2'>Logout</button>}
         </ul>
       </div>

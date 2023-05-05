@@ -1,11 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createRoot } from "react-dom/client"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-
 
 import Main from "./component/Layout/Main";
 import Blog from "./component/Blog/Blog";
@@ -15,44 +11,52 @@ import Home from "./component/Home/Home";
 import Allchefs from "./component/Chefs/AllShefs/Allchefs";
 import ChefRecipe from "./component/ChefRecipe/ChefRecipe";
 import PrivateRoute from "./component/PrivateRoute/PrivateRoute";
-
+import Page404 from "./404Page/Page404";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
-    children:[
+    element: <Main />,
+    children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,
       },
       {
         path: "/allChefs",
-        element: <Allchefs></Allchefs>,
+        element: <Allchefs />,
       },
       {
         path: ":id",
-        element: <PrivateRoute><ChefRecipe></ChefRecipe></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/allData1`)
+        element: 
+          <PrivateRoute>
+            <ChefRecipe />
+          </PrivateRoute>
+        ,
+        loader: ({ params }) => fetch(`http://localhost:5000/allData1`),
       },
       {
         path: "/blog",
-        element: <Blog></Blog>,
+        element: <Blog />,
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: <Login />,
       },
       {
         path: "/registration",
-        element: <Registration></Registration>,
+        element: <Registration />,
       },
-    ]
+  
+    ],
   },
- 
+  {
+    path: "*",
+    element: <Page404></Page404>,
+  },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
